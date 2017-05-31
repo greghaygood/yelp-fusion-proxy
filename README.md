@@ -9,7 +9,7 @@ for instructional purposes only, and should not be used in a production environm
 
 Pass a parameter **_ep** that contains the desired endpoint within the API, beginning with a forward slaash:
 ```$javascript
-jQuery.getJSON("./index.php?_ep=/beers&name=Tropicalia");
+jQuery.getJSON("./yelp.php?_ep=/businesses/search&term=Taco+Mac");
 ```
 
 Any other parameters will be sent to the requested endpoint, so this should allow full access to the API. It is 
