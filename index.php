@@ -6,6 +6,8 @@ session_start();
 
 $endpoint = @$_REQUEST['_ep'];
 header('Content-Type: application/json');
+header('Access-Control-Allow-Headers: Authorization');
+header("Access-Control-Allow-Origin: *");
 
 if (!empty($endpoint)) {
     $headers      = apache_request_headers();
