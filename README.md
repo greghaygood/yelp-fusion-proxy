@@ -13,7 +13,7 @@ Then to call any API, pass a parameter **_ep** that contains the desired endpoin
 beginning with a forward slash:
 
 ```$javascript
-fetch("./yelp.php?_ep=/businesses/search&term=Taco+Mac&location=Atlanta,GA");
+fetch("./index.php?_ep=/businesses/search&term=Taco+Mac&location=Atlanta,GA");
 ```
 
 Note that the endpoint will be prepended with *https://api.yelp.com/v3* (no trailing slash).
