@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yelp + Axios Example</title>
+</head>
+<body>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  (function () {
+
+    // NOTE: get your API_KEY from https://www.yelp.com/developers/v3/manage_app
+    var API_KEY = ''
+    var queryTerm = 'Taco Mac'
+    var location = 'Atlanta, GA'
+    axios.get('./yelp.php', {
+      params: {
+        // note the _ep value will be prepended with https://api.yelp.com/v3
+        '_ep': '/businesses/search',
+        'term': queryTerm,
+        'location': location
+      },
+      headers: {
+        'Authorization': 'Bearer ' + API_KEY
+      }
+    })
+      .then(function (response) {
+        console.log('response:', response.data, response)
+      })
+      .catch(function (error) {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.warn('Error!', error.response.data);
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+          // http.ClientRequest in node.js
+          console.warn('Error!', error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.warn('Error!', error.message);
+        }
+      })
+  })()
+
+</script>
+</body>
+</html>
